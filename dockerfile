@@ -8,9 +8,6 @@ WORKDIR /go/src/github.com/zanven42/telstra-helloworld
 # copy our entire git repo into the gopath saving a go get to this project with commit hash details
 COPY . .
 
-# change the working directory to that of this project
-WORKDIR /go/src/github.com/zanven42/telstra-helloworld
-
 # now go get all dependencies and install them
 RUN go get -d -v ./...
 RUN go install -v ./...

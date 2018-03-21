@@ -16,7 +16,7 @@ func main() {
 	address := fmt.Sprintf("0.0.0.0:%s", port)
 
 	// handlers
-	http.HandleFunc("/", root)
+	http.HandleFunc("/", rootHandle)
 
 	// listen to address and fatal if we ever crash as this should be up
 	// permanently
@@ -24,6 +24,6 @@ func main() {
 	log.Fatal(http.ListenAndServe(address, nil))
 }
 
-func root(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Hello World\n"))
+func rootHandle(w http.ResponseWriter, r *http.Request) {
+	w.Write([]byte("hello world"))
 }
