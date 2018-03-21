@@ -3,7 +3,7 @@ run: build start
 build:
 	go test -v
 	docker build . -t hello-world
-	@$(CC) docker rmi $$(docker images -f "dangling=true" -q) >NUL
+	@docker rmi -f $$(docker images -f "dangling=true" -q)
 
 start:
 	docker run --rm -p 3000:3333 hello-world
